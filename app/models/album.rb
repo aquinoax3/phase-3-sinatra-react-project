@@ -1,3 +1,4 @@
 class Album < ActiveRecord::Base
-    belongs_to :artist
+    has_many :toplists
+    has_many :users, through: :toplists
 end
