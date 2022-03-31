@@ -57,7 +57,7 @@ class ApplicationController < Sinatra::Base
     top_lists = User.find_by(params[:id]).albums
     top_lists.to_json
   end
-
+  
   post "/toplists" do
     top_lists = Toplist.create(user_id: params[:user_id], album_id: params[:album_id])
     top_lists.to_json
@@ -69,4 +69,14 @@ class ApplicationController < Sinatra::Base
     top_lists.to_json
   end
 
+  post '/login' do
+    user = params[:user_name]
+    pass = params[:password]
+    foundUser = User.find_by(user_name: user)
+    if(foundUser)
+      if(foundUser.password == pass)
+        foundUser.to_json
+      end
+    end
+  end
 end
