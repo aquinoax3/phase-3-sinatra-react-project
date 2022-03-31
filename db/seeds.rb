@@ -26,11 +26,11 @@ User.create(user_name: "Dan", password: "Thumbnail9")
 
 puts "Creating new toplist..."
 
-Toplist.create(user_id: User.first.id, album_id: Album.first.id)
-Toplist.create(user_id: User.first.id, album_id: Album.second.id)
-Toplist.create(user_id: User.first.id, album_id: Album.third.id)
-Toplist.create(user_id: User.first.id, album_id: Album.fourth.id)
-Toplist.create(user_id: User.first.id, album_id: Album.fifth.id)
+Toplist.create(users_id: User.first.id, albums_id: Album.first.id)
+Toplist.create(users_id: User.first.id, albums_id: Album.second.id)
+Toplist.create(users_id: User.first.id, albums_id: Album.third.id)
+Toplist.create(users_id: User.first.id, albums_id: Album.fourth.id)
+Toplist.create(users_id: User.first.id, albums_id: Album.fifth.id)
 
 # Toplist.create(user_id: User.second.id, album_id: Album.id)
 # Toplist.create(user_id: User.second.id, album_id: Album.id)
