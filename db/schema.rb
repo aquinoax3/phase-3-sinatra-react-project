@@ -13,21 +13,19 @@
 ActiveRecord::Schema.define(version: 2022_03_28_202059) do
 
   create_table "albums", force: :cascade do |t|
-    t.integer "album_id"
     t.string "album_title"
     t.string "album_cover"
     t.string "album_artist"
   end
 
   create_table "toplists", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "albums_id"
-    t.index ["albums_id"], name: "index_toplists_on_albums_id"
-    t.index ["users_id"], name: "index_toplists_on_users_id"
+    t.integer "user_id"
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_toplists_on_album_id"
+    t.index ["user_id"], name: "index_toplists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "user_id"
     t.string "user_name"
     t.string "password"
   end
