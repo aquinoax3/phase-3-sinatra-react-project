@@ -27,6 +27,11 @@ class ApplicationController < Sinatra::Base
     albums.to_json
   end
 
+  get "/users/:username/albums" do
+    user_albums = User.find_by(user_name: params[:username]).albums
+    user_albums.to_json
+  end
+
   get "/users" do
     users = User.all
     users.to_json
@@ -54,7 +59,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/toplists/:id" do
-    top_lists = User.find_by(params[:id]).albums
+    # binding.pry
+    top_lists = User.find(params[:id]).albums
+    top_lists.to_json
+  end
+
+  get "/toplists/search" do
+    top_lists = User.find_by(user_name: :user_name).albums
     top_lists.to_json
   end
   
