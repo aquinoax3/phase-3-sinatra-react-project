@@ -69,4 +69,15 @@ class ApplicationController < Sinatra::Base
     top_lists.to_json
   end
 
+  post "/login" do
+    user = params[:user_name]
+    pass = params[:password]
+    foundUser = User.find_by(user_name: user)
+    if(foundUser)
+      if(foundUser.password == pass)
+        foundUser.to_json
+      end
+    end
+  end
+
 end
